@@ -1,0 +1,15 @@
+{
+    "require": {
+        "tightenco/jigsaw": "^1.8"
+    },
+    "scripts": {
+        "build": "jigsaw build",
+        "serve": "jigsaw serve",
+        "watch": "jigsaw build local --watch",
+        "dev": [
+            "npm run dev"
+        ],
+        "start": "npx concurrently \"npm run dev\" \"jigsaw serve\"",
+        "start-watch": "npx concurrently \"npm run dev\" \"jigsaw build local --watch\" \"jigsaw serve\""
+    }
+}
