@@ -3,31 +3,31 @@
 @section('body')
 
     <main>
-        <section id="omne">
+        <div id="domu" class="bg-white dark:bg-gray-900">
             <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
-                <div class="flex flex-col md:flex-row items-center md:space-x-8">
-                    <div class="w-1/4 py-4 mt-8">
-                        <img class="rounded-full h-auto w-full mx-auto" src="/assets/images/fotografie.jpg"
-                            alt="Fotografie Jany a Jirky.">
-                    </div>
-                    <div class="w-3/4 py-4">
-                        <h1 class="mb-2 text-4xl font-extrabold">O mně</h1>
-                        <p class="text-2xl">Jsem absolventem doktorského studia informatiky na Univerzitě
-                            Palackého v Olomouci. Specializuji se na vývoj webových aplikací, které stavím primárně na PHP a
-                            populárních frameworcích jako Nette nebo Laravel. Také se zajímám o vývoj aplikací na platformě
-                            .NET.</pp>
-                        <p class="text-2xl mt-4">
-                            Jsem osobou se zrakovým postižením, díky čemuž mohu nahlížet na přístupnost jak z pohledu
-                            koncového uživatele,
-                            tak z pohledu tvůrce.</p>
-                    </div>
-                </div>
+                <img class="mt-4 rounded-full h-auto w-48 mx-auto" src="/assets/images/fotografie.jpg"
+                    alt="Fotografie Jany a Jirky."><br>
+                <h1 class="dark:text-white mb-2 text-6xl font-extrabold text-center">Jiří Valůšek</h1>
+            </div>
+        </div>
+
+        <section id="omne" class="bg-gray-100 dark:bg-[#121d3d]">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+                <h2 class="mb-2 text-4xl font-extrabold">O mně</h2>
+                <p class="text-2xl">Jsem absolventem doktorského studia informatiky na Univerzitě
+                    Palackého v Olomouci. Specializuji se na vývoj webových aplikací, které stavím primárně na PHP a
+                    populárních frameworcích jako Nette nebo Laravel. Také se zajímám o vývoj aplikací na platformě
+                    .NET.</p>
+                <p class="text-2xl mt-4">
+                    Jsem osobou se zrakovým postižením, díky čemuž mohu nahlížet na přístupnost jak z pohledu
+                    koncového uživatele,
+                    tak z pohledu tvůrce.</p>
             </div>
         </section>
 
         <section class="bg-blue-900 px-3 xl:px-0 text-white" id="vzdelani">
             <div class="py-8 mx-auto max-w-screen-xl lg:py-16">
-                <h1 class="mb-4 text-4xl text-white font-extrabold">Vzdělání</h1>
+                <h2 class="mb-4 text-4xl text-white font-extrabold">Vzdělání</h2>
                 <ol class="items-center w-full sm:flex">
                     <li class="relative mb-6 sm:mb-0 flex-1">
                         <div class="flex items-center">
@@ -96,95 +96,116 @@
 
         <section class="px-3 xl:px-0" id="projekty">
             <div class="py-8 mx-auto max-w-screen-xl lg:py-16">
-                <h1 class="mb-4 text-4xl font-extrabold">Projekty</h1>
+                <h2 class="mb-4 text-4xl font-extrabold">Projekty</h2>
+
+                <div class="flex flex-wrap gap-6">
+                    <div class="block max-w-sm p-6 border border-default rounded-base shadow-xs">
+                        <img class="rounded-base w-full h-48 object-cover object-top" src="/assets/images/kyklop.png"
+                            alt="Náhled webu www.kyklop.net">
+                        <h3 class="my-3 text-2xl font-semibold tracking-tight text-heading">KYKLOP o.p.s.</h3>
+                        <p class="mb-3 text-body">Tvořím a spravuji webové stránky neziskové organizace KYKLOP o.p.s.</p>
+                        <p class="text-body"><b>Odkaz:</b> <a href="https://www.kyklop.net"
+                                class="text-blue-900 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">www.kyklop.net</a></p>
+                    </div>
+                    <div class="block max-w-sm p-6 border border-default rounded-base shadow-xs">
+                        <img class="rounded-base w-full h-48 object-cover object-top"
+                            src="/assets/images/bizuterie-valusek.png" alt="Náhled webu www.bizuterie-valusek.cz">
+                        <h3 class="my-3 text-2xl font-semibold tracking-tight text-heading">Bižuterie Valůšek</h3>
+                        <p class="mb-3 text-body">Spravuji eshop Bižuterie Valůšek a vytvářím pro něj rozšiřující moduly.
+                        </p>
+                        <p class="text-body"><b>Odkaz:</b> <a href="https://www.bizuterie-valusek.cz"
+                                class="text-blue-900 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300">www.bizuterie-valusek.cz</a></p>
+                    </div>
+
+                </div>
             </div>
         </section>
 
         <section class="bg-blue-900 px-3 xl:px-0 text-white" id="technologie">
             <div class="py-8 mx-auto max-w-screen-xl lg:py-16">
-                <h1 class="mb-4 text-4xl text-white font-extrabold">Používám následující technologie</h1>
+                <h2 class="mb-4 text-4xl text-white font-extrabold">Používám následující technologie</h2>
                 <div class="flex flex-wrap gap-6 justify-center sm:justify-start">
                     <figure
                         class="flex flex-col items-center p-4 min-w-[120px] bg-neutral-primary-soft rounded-lg border border-default-medium shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-center w-16 h-16 mb-1">
-                            <img src="/assets/images/php.svg" alt="PHP" class="w-16 h-16 object-contain" />
+                            <img src="/assets/images/php.svg" alt="PHP" class="w-16 h-16 object-contain">
                         </div>
                         <figcaption class="text-sm font-medium text-body text-center">PHP</figcaption>
                     </figure>
                     <figure
                         class="flex flex-col items-center p-4 min-w-[120px] bg-neutral-primary-soft rounded-lg border border-default-medium shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-center w-16 h-16 mb-1">
-                            <img src="/assets/images/nette.svg" alt="Nette" class="w-16 h-16 object-contain invert" />
+                            <img src="/assets/images/nette.svg" alt="Nette" class="w-16 h-16 object-contain invert">
                         </div>
                         <figcaption class="text-sm font-medium text-body text-center">Nette</figcaption>
                     </figure>
                     <figure
                         class="flex flex-col items-center p-4 min-w-[120px] bg-neutral-primary-soft rounded-lg border border-default-medium shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-center w-16 h-16 mb-1">
-                            <img src="/assets/images/laravel.svg" alt="Laravel" class="w-16 h-16 object-contain" />
+                            <img src="/assets/images/laravel.svg" alt="Laravel" class="w-16 h-16 object-contain">
                         </div>
                         <figcaption class="text-sm font-medium text-body text-center">Laravel</figcaption>
                     </figure>
                     <figure
                         class="flex flex-col items-center p-4 min-w-[120px] bg-neutral-primary-soft rounded-lg border border-default-medium shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-center w-16 h-16 mb-1">
-                            <img src="/assets/images/jigsaw.svg" alt="Jigsaw" class="w-16 h-16 object-contain" />
+                            <img src="/assets/images/jigsaw.svg" alt="Jigsaw" class="w-16 h-16 object-contain">
                         </div>
                         <figcaption class="text-sm font-medium text-body text-center">Jigsaw</figcaption>
                     </figure>
                     <figure
                         class="flex flex-col items-center p-4 min-w-[120px] bg-neutral-primary-soft rounded-lg border border-default-medium shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-center w-16 h-16 mb-1">
-                            <img src="/assets/images/javascript.svg" alt="JavaScript" class="w-16 h-16 object-contain" />
+                            <img src="/assets/images/javascript.svg" alt="JavaScript" class="w-16 h-16 object-contain">
                         </div>
                         <figcaption class="text-sm font-medium text-body text-center">JavaScript</figcaption>
                     </figure>
                     <figure
                         class="flex flex-col items-center p-4 min-w-[120px] bg-neutral-primary-soft rounded-lg border border-default-medium shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-center w-16 h-16 mb-1">
-                            <img src="/assets/images/bootstrap.svg" alt="Bootstrap" class="w-16 h-16 object-contain" />
+                            <img src="/assets/images/bootstrap.svg" alt="Bootstrap" class="w-16 h-16 object-contain">
                         </div>
                         <figcaption class="text-sm font-medium text-body text-center">Bootstrap</figcaption>
                     </figure>
                     <figure
                         class="flex flex-col items-center p-4 min-w-[120px] bg-neutral-primary-soft rounded-lg border border-default-medium shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-center w-16 h-16 mb-1">
-                            <img src="/assets/images/flowbite.svg" alt="Flowbite" class="w-16 h-16 object-contain" />
+                            <img src="/assets/images/flowbite.svg" alt="Flowbite" class="w-16 h-16 object-contain">
                         </div>
                         <figcaption class="text-sm font-medium text-body text-center">Flowbite</figcaption>
                     </figure>
                     <figure
                         class="flex flex-col items-center p-4 min-w-[120px] bg-neutral-primary-soft rounded-lg border border-default-medium shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-center w-16 h-16 mb-1">
-                            <img src="/assets/images/git.svg" alt="Git" class="w-16 h-16 object-contain" />
+                            <img src="/assets/images/git.svg" alt="Git" class="w-16 h-16 object-contain">
                         </div>
                         <figcaption class="text-sm font-medium text-body text-center">Git</figcaption>
                     </figure>
                     <figure
                         class="flex flex-col items-center p-4 min-w-[120px] bg-neutral-primary-soft rounded-lg border border-default-medium shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-center w-16 h-16 mb-1">
-                            <img src="/assets/images/docker.svg" alt="Docker" class="w-16 h-16 object-contain" />
+                            <img src="/assets/images/docker.svg" alt="Docker" class="w-16 h-16 object-contain">
                         </div>
                         <figcaption class="text-sm font-medium text-body text-center">Docker</figcaption>
                     </figure>
                     <figure
                         class="flex flex-col items-center p-4 min-w-[120px] bg-neutral-primary-soft rounded-lg border border-default-medium shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-center w-16 h-16 mb-1">
-                            <img src="/assets/images/mysql.svg" alt="MySQL" class="w-16 h-16 object-contain" />
+                            <img src="/assets/images/mysql.svg" alt="MySQL" class="w-16 h-16 object-contain">
                         </div>
                         <figcaption class="text-sm font-medium text-body text-center">MySQL</figcaption>
                     </figure>
                     <figure
                         class="flex flex-col items-center p-4 min-w-[120px] bg-neutral-primary-soft rounded-lg border border-default-medium shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-center w-16 h-16 mb-1">
-                            <img src="/assets/images/csharp.svg" alt="C#" class="w-16 h-16 object-contain" />
+                            <img src="/assets/images/csharp.svg" alt="C#" class="w-16 h-16 object-contain">
                         </div>
                         <figcaption class="text-sm font-medium text-body text-center">C#</figcaption>
                     </figure>
                     <figure
                         class="flex flex-col items-center p-4 min-w-[120px] bg-neutral-primary-soft rounded-lg border border-default-medium shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-center w-16 h-16 mb-1">
-                            <img src="/assets/images/fsharp.svg" alt="F#" class="w-16 h-16 object-contain" />
+                            <img src="/assets/images/fsharp.svg" alt="F#" class="w-16 h-16 object-contain">
                         </div>
                         <figcaption class="text-sm font-medium text-body text-center">F#</figcaption>
                     </figure>

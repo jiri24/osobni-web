@@ -6,7 +6,7 @@
         "process-timeout": 0
     },
     "scripts": {
-        "build": "jigsaw build",
+        "build": "npm run build",
         "serve": "jigsaw serve",
         "watch": "jigsaw build local --watch",
         "dev": [
