@@ -1,4 +1,8 @@
 Kompilace:
-### npm run build
+```
+npm run build
+```
 nebo
-### composer build
+```
+composer build
+```
