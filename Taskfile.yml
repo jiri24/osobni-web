@@ -29,12 +29,15 @@ tasks:
 
   release:
     desc: "Vydá novou verzi: tag vX.Y.Z, z něj GitHub Actions sestaví image (task release -- 1.2.0)"
+    vars:
+      # Verze s „v“ i bez něj (1.2.0 i v1.2.0)
+      VERSION: '{{trimPrefix "v" .CLI_ARGS}}'
     preconditions:
-      - sh: echo "{{.CLI_ARGS}}" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'
-        msg: "Použití: task release -- 1.2.0"
+      - sh: echo "{{.VERSION}}" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'
+        msg: "Použití: task release -- 1.2.0 (nebo v1.2.0)"
       - sh: test -z "$(git status --porcelain)"
         msg: "Nejdřív commitni všechny změny (git status musí být čistý)"
     cmds:
-      - git tag v{{.CLI_ARGS}}
+      - git tag v{{.VERSION}}
       # Tag i aktuální větev, aby na GitHubu byl i commit, ze kterého se vydává
-      - git push origin HEAD v{{.CLI_ARGS}}
+      - git push origin HEAD v{{.VERSION}}
