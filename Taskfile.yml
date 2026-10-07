@@ -1,0 +1,40 @@
+# Příkazy projektu (https://taskfile.dev). Každý task je obyčejný příkaz,
+# takže jde spustit i bez task – viz docs/docker.md.
+version: '3'
+
+vars:
+  OPEN:
+    sh: "command -v open || command -v wslview || command -v xdg-open || echo echo"
+
+tasks:
+  up:
+    desc: Sestaví produkční image a spustí ho lokálně (http://127.0.0.1:8090)
+    cmds:
+      - docker compose up -d --build {{.CLI_ARGS}}
+
+  down:
+    desc: Zastaví a odstraní kontejner
+    cmds:
+      - docker compose down {{.CLI_ARGS}}
+
+  logs:
+    desc: Průběžné logy nginx
+    cmds:
+      - docker compose logs -f {{.CLI_ARGS}}
+
+  open:
+    desc: Otevře lokální náhled v prohlížeči
+    cmds:
+      - "{{.OPEN}} http://$(docker compose port app 8080)"
+
+  release:
+    desc: "Vydá novou verzi: tag vX.Y.Z, z něj GitHub Actions sestaví image (task release -- 1.2.0)"
+    preconditions:
+      - sh: echo "{{.CLI_ARGS}}" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'
+        msg: "Použití: task release -- 1.2.0"
+      - sh: test -z "$(git status --porcelain)"
+        msg: "Nejdřív commitni všechny změny (git status musí být čistý)"
+    cmds:
+      - git tag v{{.CLI_ARGS}}
+      # Tag i aktuální větev, aby na GitHubu byl i commit, ze kterého se vydává
+      - git push origin HEAD v{{.CLI_ARGS}}

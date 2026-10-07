@@ -1,0 +1,21 @@
+# Společný základ pro lokální náhled (task up) i server.
+# Na serveru se v .env nastaví COMPOSE_FILE=compose.yaml:compose.prod.yaml.
+name: osobni-web
+
+services:
+  app:
+    build:
+      context: .
+      target: prod
+    ports:
+      # Jen localhost: lokálně http://127.0.0.1:8090, na serveru cíl Caddy.
+      # Jiný port přes APP_PORT v .env
+      - "127.0.0.1:${APP_PORT:-8090}:8080"
+    read_only: true
+    tmpfs:
+      # PID a dočasné soubory nginx
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true

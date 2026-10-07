@@ -1,0 +1,29 @@
+# Do image jde jen to, co potřebuje build; tajnosti nikdy
+.env
+.env.*
+**/*.key
+**/*.pem
+
+.git
+.github
+.gitignore
+.dockerignore
+**/.DS_Store
+.idea
+.vscode
+*.code-workspace
+
+# Závislosti a výstupy se sestaví v image
+vendor/
+node_modules/
+cache/
+build_*/
+source/assets/build/
+# Soubor Vite dev serveru – Jigsaw by s ním v HTML odkazoval na localhost
+**/hot
+
+docs/
+*.md
+Dockerfile
+compose*.yaml
+Taskfile.yml

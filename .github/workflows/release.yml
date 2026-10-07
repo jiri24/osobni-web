@@ -1,0 +1,38 @@
+# Spouští ho jen tag vydání vX.Y.Z (task release): sestaví produkční image (target "prod")
+# a pushne ho do ghcr.io/jiri24/osobni-web jako :X.Y.Z a :latest. Běžný push nespouští nic.
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      packages: write
+    env:
+      IMAGE: ghcr.io/jiri24/osobni-web
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Přihlášení do ghcr.io
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo "$TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+
+      # --pull: vždy aktuální základní image (bezpečnostní opravy nginx a Alpine)
+      - name: Build
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          docker build --pull --progress=plain --target prod \
+            --label org.opencontainers.image.revision="$GITHUB_SHA" \
+            --label org.opencontainers.image.source="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" \
+            --label org.opencontainers.image.version="$TAG" \
+            -t "$IMAGE:$TAG" -t "$IMAGE:latest" .
+
+      - name: Push
+        run: docker push --all-tags "$IMAGE"

@@ -1,0 +1,13 @@
+# Server: zapíná se přes COMPOSE_FILE=compose.yaml:compose.prod.yaml v .env.
+# Image sestavuje GitHub Actions z tagu vX.Y.Z, server ho jen stahuje a nikdy nesestavuje.
+# Bez APP_VERSION v .env se použije nejnovější vydaná verze (:latest).
+services:
+  app:
+    build: !reset null
+    image: ghcr.io/jiri24/osobni-web:${APP_VERSION:-latest}
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

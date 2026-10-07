@@ -163,6 +163,13 @@
                     <figure
                         class="flex flex-col items-center p-4 min-w-[120px] bg-neutral-primary-soft rounded-lg border border-default-medium shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-center w-16 h-16 mb-1">
+                            <img src="/assets/images/vue.svg" alt="Vue.js" class="w-16 h-16 object-contain">
+                        </div>
+                        <figcaption class="text-sm font-medium text-body text-center">Vue.js</figcaption>
+                    </figure>
+                    <figure
+                        class="flex flex-col items-center p-4 min-w-[120px] bg-neutral-primary-soft rounded-lg border border-default-medium shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-center w-16 h-16 mb-1">
                             <img src="/assets/images/bootstrap.svg" alt="Bootstrap" class="w-16 h-16 object-contain">
                         </div>
                         <figcaption class="text-sm font-medium text-body text-center">Bootstrap</figcaption>
@@ -209,7 +216,13 @@
                         </div>
                         <figcaption class="text-sm font-medium text-body text-center">F#</figcaption>
                     </figure>
-
+                    <figure
+                        class="flex flex-col items-center p-4 min-w-[120px] bg-neutral-primary-soft rounded-lg border border-default-medium shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center justify-center w-16 h-16 mb-1">
+                            <img src="/assets/images/claude.svg" alt="Claude Code" class="w-16 h-16 object-contain">
+                        </div>
+                        <figcaption class="text-sm font-medium text-body text-center">Claude Code</figcaption>
+                    </figure>
                 </div>
             </div>
         </section>
