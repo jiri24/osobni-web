@@ -39,5 +39,7 @@ tasks:
         msg: "Nejdřív commitni všechny změny (git status musí být čistý)"
     cmds:
       - git tag v{{.VERSION}}
-      # Tag i aktuální větev, aby na GitHubu byl i commit, ze kterého se vydává
-      - git push origin HEAD v{{.VERSION}}
+      # Nejdřív větev (i se změnami workflow), až pak tag – ten spouští GitHub Actions.
+      # Push obojího najednou build nespustil, když workflow přišel ve stejném pushi.
+      - git push origin HEAD
+      - git push origin v{{.VERSION}}
